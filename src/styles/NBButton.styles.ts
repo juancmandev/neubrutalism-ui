@@ -22,8 +22,10 @@ export const StyledButton = styled.button<NBButtonProps>`
     transition: 0.14s ease-out;
     box-shadow: 4px 4px 0 #000;
   }
-  &:focus-within {
-    outline: ${({ bgColor }) => (bgColor ? bgColor : '#ff5e8c')} solid 2px;
+  &:active #buttonBg {
+    transform: translate(0, 0);
+    transition: 0.14s ease-out;
+    box-shadow: none;
   }
 `;
 

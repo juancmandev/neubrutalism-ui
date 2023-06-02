@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { NBButton } from '.';
 import { NBBox } from './components/NBBox';
 import { NBDialog } from './components/NBDialog';
+import '@/styles/globals.css';
 
 export default function App() {
   const [open, setOpen] = useState(false);

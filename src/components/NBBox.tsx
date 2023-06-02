@@ -2,12 +2,12 @@ import { StyledContent } from '@/styles/Globals';
 import { StyledBox } from '@/styles/NBBox.styles';
 
 export interface NBBoxProps {
-  children: React.ReactNode;
   bgColor?: string;
+  children: React.ReactNode;
 }
 
-export const NBBox = ({ children }: NBBoxProps) => (
-  <StyledBox>
+export const NBBox = ({ children, bgColor }: NBBoxProps) => (
+  <StyledBox bgColor={bgColor}>
     <StyledContent>{children}</StyledContent>
   </StyledBox>
 );
