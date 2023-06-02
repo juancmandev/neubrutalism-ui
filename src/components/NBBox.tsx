@@ -1,4 +1,3 @@
-import { StyledContent } from '@/styles/Globals';
 import { StyledBox } from '@/styles/NBBox.styles';
 
 export interface NBBoxProps {
@@ -7,7 +6,5 @@ export interface NBBoxProps {
 }
 
 export const NBBox = ({ children, bgColor }: NBBoxProps) => (
-  <StyledBox bgColor={bgColor}>
-    <StyledContent>{children}</StyledContent>
-  </StyledBox>
+  <StyledBox bgColor={bgColor}>{children}</StyledBox>
 );
