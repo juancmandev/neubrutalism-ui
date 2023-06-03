@@ -1,15 +1,19 @@
 import { useState, useEffect, useRef } from 'react';
 import { NBDropdown } from './NBDropdown';
-import { StyledMenuItem, UnstyledButton } from '@/styles/NBMenuItem';
+import { UnstyledButton } from '@/styles/NBDropdownActionableProps';
 
-export interface NBMenuItemProps {
-  items?: any;
+export interface NBDropdownActionableProps {
+  children?: React.ReactNode;
+  dropdownContent: React.ReactNode;
 }
 
-export const NBMenuItem = ({ items }: NBMenuItemProps) => {
+export const NBDropdownActionable = ({
+  children,
+  dropdownContent,
+}: NBDropdownActionableProps) => {
   const [dropdown, setDropdown] = useState(false);
 
-  const ref = useRef<HTMLLIElement | null>(null);
+  const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const handler = (event: any): any => {
@@ -33,25 +37,20 @@ export const NBMenuItem = ({ items }: NBMenuItemProps) => {
   const closeDropdown = () => dropdown && setDropdown(false);
 
   return (
-    <li
+    <div
       ref={ref}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      onClick={closeDropdown}>
-      <div style={{ maxWidth: 'max-content' }}>
-        <UnstyledButton
-          type='button'
-          aria-haspopup='menu'
-          aria-expanded={dropdown ? true : false}
-          onClick={() => setDropdown((prev) => !prev)}>
-          {items.title}
-        </UnstyledButton>
-        <NBDropdown dropdown={dropdown}>
-          <StyledMenuItem>
-            <UnstyledButton>Button</UnstyledButton>
-          </StyledMenuItem>
-        </NBDropdown>
-      </div>
-    </li>
+      onClick={closeDropdown}
+      style={{ maxWidth: 'max-content' }}>
+      <UnstyledButton
+        type='button'
+        aria-haspopup='menu'
+        aria-expanded={dropdown ? true : false}
+        onClick={() => setDropdown((prev) => !prev)}>
+        {children}
+      </UnstyledButton>
+      <NBDropdown dropdown={dropdown}>{dropdownContent}</NBDropdown>
+    </div>
   );
 };

@@ -3,7 +3,7 @@ import { NBButton } from '.';
 import { NBBox } from './components/NBBox';
 import { NBDialog } from './components/NBDialog';
 import '@/styles/globals.css';
-import { NBMenuItem } from './components/NBMenuItem';
+import { NBDropdownActionable } from './components/NBDropdownActionable';
 
 export default function App() {
   const [open, setOpen] = useState(false);
@@ -50,17 +50,18 @@ export default function App() {
         </div>
       </NBDialog>
       <div style={{ height: '8px' }} />
-      <NBBox>
-        <ul
-          style={{
-            display: 'flex',
-            listStyle: 'none',
-          }}>
-          {menuItems.map((menu, index) => (
-            <NBMenuItem items={menu} key={index} />
-          ))}
-        </ul>
-      </NBBox>
+      <NBDropdownActionable
+        dropdownContent={
+          <div>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis,
+              dicta.
+            </p>
+            <NBButton>Close</NBButton>
+          </div>
+        }>
+        Dropdown
+      </NBDropdownActionable>
     </>
   );
 }
