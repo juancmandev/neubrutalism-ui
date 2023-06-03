@@ -8,31 +8,6 @@ import { NBDropdownActionable } from './components/NBDropdownActionable';
 export default function App() {
   const [open, setOpen] = useState(false);
 
-  const menuItems = [
-    {
-      title: 'Home',
-      url: '/',
-    },
-    {
-      title: 'Services',
-      url: '/services',
-      submenu: [
-        {
-          title: 'For entrepreneurs',
-          url: '/entrepreneurs',
-        },
-        {
-          title: 'For students',
-          url: '/students',
-        },
-        {
-          title: 'For hobbyists',
-          url: '/hobbyists',
-        },
-      ],
-    },
-  ];
-
   return (
     <>
       <h1>Neubrutalism UI</h1>
