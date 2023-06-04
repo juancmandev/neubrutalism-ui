@@ -5,6 +5,7 @@ interface UnstyledButtonProps {
 }
 
 export const UnstyledButton = styled.button<UnstyledButtonProps>`
+  position: relative;
   width: ${({ width }) => width || '100%'};
   background-color: transparent;
   font-weight: bold;

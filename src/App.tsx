@@ -24,16 +24,17 @@ export default function App() {
           <NBButton>Close</NBButton>
         </div>
       </NBDialog>
+
       <div style={{ height: '8px' }} />
+
       <NBDropdownActionable
         dropdownContent={
-          <div>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis,
-              dicta.
-            </p>
-            <NBButton>Close</NBButton>
-          </div>
+          <>
+            <p>Hola</p>
+            <NBDropdownActionable dropdownContent={<p>Products</p>}>
+              Products
+            </NBDropdownActionable>
+          </>
         }>
         Dropdown
       </NBDropdownActionable>

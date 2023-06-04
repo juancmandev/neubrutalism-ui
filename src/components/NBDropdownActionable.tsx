@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import { NBDropdown } from './NBDropdown';
-import { UnstyledButton } from '@/styles/NBDropdownActionableProps';
+import { UnstyledButton } from '@/styles/NBDropdownActionable.styles';
 
 export interface NBDropdownActionableProps {
   children?: React.ReactNode;
@@ -13,44 +13,18 @@ export const NBDropdownActionable = ({
 }: NBDropdownActionableProps) => {
   const [dropdown, setDropdown] = useState(false);
 
-  const ref = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const handler = (event: any): any => {
-      if (dropdown && ref.current && !ref.current.contains(event.currentTarget))
-        setDropdown(false);
-    };
-
-    document.addEventListener('mousedown', handler);
-    document.addEventListener('touchstart', handler);
-
-    return () => {
-      document.removeEventListener('mousedown', handler);
-      document.removeEventListener('touchstart', handler);
-    };
-  }, [dropdown]);
-
-  const onMouseEnter = () => window.innerWidth > 960 && setDropdown(true);
-
-  const onMouseLeave = () => window.innerWidth > 960 && setDropdown(false);
-
-  const closeDropdown = () => dropdown && setDropdown(false);
-
   return (
-    <div
-      ref={ref}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-      onClick={closeDropdown}
-      style={{ maxWidth: 'max-content' }}>
+    <div style={{ width: 'max-content', position: 'relative' }}>
       <UnstyledButton
         type='button'
         aria-haspopup='menu'
-        aria-expanded={dropdown ? true : false}
-        onClick={() => setDropdown((prev) => !prev)}>
+        aria-expanded={dropdown}
+        onClick={() => setDropdown(true)}>
         {children}
       </UnstyledButton>
-      <NBDropdown dropdown={dropdown}>{dropdownContent}</NBDropdown>
+      <NBDropdown dropdown={dropdown} onClickOutside={() => setDropdown(false)}>
+        {dropdownContent}
+      </NBDropdown>
     </div>
   );
 };
