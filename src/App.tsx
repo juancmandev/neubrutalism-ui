@@ -4,9 +4,27 @@ import { NBBox } from './components/NBBox';
 import { NBDialog } from './components/NBDialog';
 import '@/styles/globals.css';
 import { NBDropdownActionable } from './components/NBDropdownActionable';
+import { NBInput } from './components/NBInput';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 export default function App() {
   const [open, setOpen] = useState(false);
+
+  const formik = useFormik({
+    initialValues: {
+      input: '',
+    },
+    initialErrors: {
+      input: '',
+    },
+    validationSchema: Yup.object({
+      input: Yup.string().required('Required'),
+    }),
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
 
   return (
     <>
@@ -38,6 +56,20 @@ export default function App() {
         }>
         Dropdown
       </NBDropdownActionable>
+
+      <form onSubmit={formik.handleSubmit}>
+        <NBInput
+          id='input'
+          type='text'
+          onBlur={formik.handleBlur}
+          value={formik.values.input}
+          onChange={formik.handleChange}
+          onTouched={formik.touched.input}
+          onError={formik.errors.input}
+          placeholder='Input example'
+        />
+        <NBButton type='submit'>Submit</NBButton>
+      </form>
     </>
   );
 }
