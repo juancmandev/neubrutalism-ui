@@ -30,7 +30,7 @@ export default function App() {
   return (
     <>
       <NBHeader
-        logo={<h1>Logo</h1>}
+        logo={<a href='/'>Logo</a>}
         navItems={[<a href='/'>Home</a>, <a href='/'>About</a>]}
       />
       <h1>Neubrutalism UI</h1>
