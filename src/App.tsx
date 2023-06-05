@@ -7,6 +7,7 @@ import { NBDropdownActionable } from './components/NBDropdownActionable';
 import { NBInput } from './components/NBInput';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { NBHeader } from './components/NBHeader';
 
 export default function App() {
   const [open, setOpen] = useState(false);
@@ -28,6 +29,10 @@ export default function App() {
 
   return (
     <>
+      <NBHeader
+        logo={<h1>Logo</h1>}
+        navItems={[<a href='/'>Home</a>, <a href='/'>About</a>]}
+      />
       <h1>Neubrutalism UI</h1>
       <div>
         <NBButton>Hola</NBButton>

@@ -4,3 +4,4 @@ export * from './components/NBDialog';
 export * from './components/NBDropdown';
 export * from './components/NBDropdownActionable';
 export * from './components/NBInput';
+export * from './components/NBHeader';
