@@ -28,7 +28,7 @@ export default function App() {
   });
 
   return (
-    <>
+    <div style={{ minHeight: '200vh' }}>
       <NBHeader
         logo={
           <a
@@ -83,6 +83,6 @@ export default function App() {
         />
         <NBButton type='submit'>Submit</NBButton>
       </form>
-    </>
+    </div>
   );
 }

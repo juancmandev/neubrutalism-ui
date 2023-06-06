@@ -9,7 +9,11 @@ interface bgColorProps {
 }
 
 export const StyledHeader = styled.header`
+  position: fixed;
+  width: 100vw;
   min-height: 46px;
+  z-index: 999;
+  background-color: #fff;
   border: 2px solid #000;
   border-right: none;
   display: grid;
