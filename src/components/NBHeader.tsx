@@ -29,6 +29,8 @@ export const NBHeader = (props: NBHeaderProps) => {
     open ? sideBarRef.current?.showModal() : sideBarRef.current?.close();
   }, [open]);
 
+  const closeDialogOnClick = () => setOpen(false);
+
   const handleDialogClick = (
     e: React.MouseEvent<HTMLDialogElement, MouseEvent>
   ) => {
@@ -70,17 +72,21 @@ export const NBHeader = (props: NBHeaderProps) => {
         </button>
       </MediaSmallScreen>
       <StyledSidebar onClick={handleDialogClick} ref={sideBarRef}>
-        <StyledSidebarLogo bgColor={props.logoBgColor}>
+        <StyledSidebarLogo
+          onClick={closeDialogOnClick}
+          bgColor={props.logoBgColor}>
           {props.logo}
         </StyledSidebarLogo>
         <StyledSidebarNavItems>
           {props.navItems?.map((navItem, index) => (
-            <StyledSidebarNavItemContainer key={index}>
+            <StyledSidebarNavItemContainer
+              onClick={closeDialogOnClick}
+              key={index}>
               {navItem}
             </StyledSidebarNavItemContainer>
           ))}
           <StyledSidebarNavItemContainer>
-            <button onClick={() => setOpen(false)}>
+            <button onClick={closeDialogOnClick}>
               <CloseIcon />
             </button>
           </StyledSidebarNavItemContainer>
