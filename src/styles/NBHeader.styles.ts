@@ -187,6 +187,8 @@ export const StyledSidebarNavItemContainer = styled.li<hoverBgColorProps>`
     > button {
       width: 100%;
       height: 100%;
+      display: flex;
+      justify-content: center;
       padding: 8px 0;
       cursor: pointer;
       border: none;
