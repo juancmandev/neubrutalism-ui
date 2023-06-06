@@ -119,7 +119,6 @@ export const StyledSidebar = styled.dialog`
   border: 2px solid #000;
   background-color: #fff;
   box-shadow: 4px 4px 0 #000;
-
   ::backdrop {
     background-color: rgba(0, 0, 0, 0.5);
   }
@@ -128,7 +127,7 @@ export const StyledSidebar = styled.dialog`
 export const StyledSidebarLogo = styled.section<bgColorProps>`
   margin-bottom: 20px;
   > a {
-    padding: 16px 0;
+    padding: 16px 8px;
     display: flex;
     justify-content: center;
     align-items: center;
