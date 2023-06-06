@@ -9,7 +9,7 @@ interface bgColorProps {
 }
 
 export const StyledHeader = styled.header`
-  padding: 0;
+  min-height: 46px;
   border: 2px solid #000;
   border-right: none;
   display: grid;
@@ -19,8 +19,13 @@ export const StyledHeader = styled.header`
 `;
 
 export const StyledLogo = styled.section<bgColorProps>`
+  height: 100%;
   > a {
-    padding: 12px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px;
+    height: 100%;
     color: #000;
     font-weight: bold;
     text-decoration: none;
@@ -38,14 +43,19 @@ export const StyledNavContainer = styled.nav`
 `;
 
 export const MediaMidScreen = styled.div`
+  height: 100%;
   @media (max-width: 768px) {
     display: none;
   }
 `;
 
 export const MediaSmallScreen = styled.div<hoverBgColorProps>`
+  height: 100%;
   > button {
     background-color: transparent;
+    display: flex;
+    align-items: center;
+    height: 100%;
     padding: 3.5px 12px;
     border: none;
     cursor: pointer;
